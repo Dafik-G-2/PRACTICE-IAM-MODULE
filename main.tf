@@ -23,13 +23,13 @@ resource "aws_iam_policy" "s3-read-only" {
   name = var.policy_name
   policy = jsonencode(
     {
-        "Version" : "2012-10-17",
+        "Version" = "2012-10-17",
         "Statement" = [
             {
                 "Effect" : "Allow",
                 "Action" : [
-                    "s3.GetObject",
-                    "s3.ListObject"
+                    "s3:GetObject",
+                    "s3:ListObject"
                 ]
                 "Resource" : "arn:aws:s3:::${var.s3-bucket-name}"
             }
